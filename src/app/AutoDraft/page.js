@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import Navbar from "../../components/Navbar";
 import Header from "@/components/Header";
 import Reply from "@/components/Reply";
+import EmailForm from "@/components/EmailForm";
 const AutoDraft = () => {
   const [sectionStates, setSectionStates] = useState({
     draft: true,
@@ -28,15 +29,15 @@ const AutoDraft = () => {
   return (
     <>
       <Header>
-        <div className="flex flex-col  items-center px-5 pt-[10px] font-custom">
-          <div className=" flex flex-row  gap-x-4 font-normal cursor-pointer">
+        <div className="flex flex-col items-center px-5 pt-5 font-custom">
+          <div className="flex flex-row  gap-x-4 font-normal cursor-pointer">
             {sectionsData.map((section, idx) => (
               <div
                 key={section.key}
                 onClick={() => handleClick(idx + 1)}
                 className={`flex flex-col gap-y-1 pt-[6px] `}
               >
-                <h2 className={`${sectionStates[section.key] && "font-bold"}`}>
+                <h2 className={`text-[14px] ${sectionStates[section.key] && "font-bold"}`}>
                   {section.label}
                 </h2>
                 <div
@@ -49,7 +50,7 @@ const AutoDraft = () => {
             ))}
           </div>
           {activeTab === 1 ? (
-            <div>div1</div>
+            <EmailForm/>
           ) : activeTab === 2 ? (
             <Reply />
           ) : (
