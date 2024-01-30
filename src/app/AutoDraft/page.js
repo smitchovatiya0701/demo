@@ -29,7 +29,7 @@ const AutoDraft = () => {
   return (
     <>
       <Header>
-        <div className="flex flex-col items-center px-5 pt-5 font-custom">
+        <div className="flex flex-col items-center px-5  font-custom gap-y-5">
           <div className="flex flex-row  gap-x-4 font-normal cursor-pointer">
             {sectionsData.map((section, idx) => (
               <div
