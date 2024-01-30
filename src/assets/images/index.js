@@ -11,8 +11,9 @@ import searchIcon from "@/assets/images/searchIcon.png";
 import Play from "@/assets/images/play.svg";
 import Plus from "@/assets/images/plus.svg";
 import Search from "@/assets/images/search.svg";
-
+import Redrafts from "@/assets/images/Redrafts.png";
 export {
+  Redrafts,
   Search,
   check,
   close,

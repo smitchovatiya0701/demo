@@ -37,7 +37,11 @@ const AutoDraft = () => {
                 onClick={() => handleClick(idx + 1)}
                 className={`flex flex-col gap-y-1 pt-[6px] `}
               >
-                <h2 className={`text-[14px] ${sectionStates[section.key] && "font-bold"}`}>
+                <h2
+                  className={`text-[14px] ${
+                    sectionStates[section.key] && "font-bold"
+                  }`}
+                >
                   {section.label}
                 </h2>
                 <div
@@ -50,7 +54,7 @@ const AutoDraft = () => {
             ))}
           </div>
           {activeTab === 1 ? (
-            <EmailForm/>
+            <EmailForm />
           ) : activeTab === 2 ? (
             <Reply />
           ) : (
