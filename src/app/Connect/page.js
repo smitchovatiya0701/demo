@@ -1,24 +1,18 @@
 import React from "react";
-import Navbar from "../Navbar/Navbar";
+import Navbar from "../../components/Navbar";
 import Image from "next/image";
 import { Outlook, R } from "../../assets/images/index";
 import Link from "next/link";
+import Header from "@/components/Header";
 const Connect = () => {
   return (
     <>
-      <div className="max-w-[20rem] ml-auto rounded-xl shadow-custom  h-[636px]">
-        <div>
-          <Navbar />
-        </div>
+      <Header isShowPin={true}>
         <div className="flex flex-col  items-center  px-5 pt-10 font-custom">
           <div className="flex flex-col gap-y-8">
             <div className="flex flex-row justify-center gap-x-2">
               <div>
-                <Image
-                  src={Outlook}
-                  alt=""
-                  className="w-[68.48px] h-[68.48px]"
-                />
+                <Image src={Outlook} alt="" className="w-[68.48px] h-[68.48px]" />
               </div>
               <h2 className="text-[21.753px] font-normal leading-[32.63px] tracking-[-0.218px] pt-[28px]">
                 x
@@ -42,12 +36,14 @@ const Connect = () => {
             </div>
           </div>
           <div className="pt-10">
-            <Link href='/Process'><button className="w-[241px] text-sm font-bold  text-[#fff] leading-5 py-[5px] px-[12px] rounded border border-[#D1D1D1] bg-[#00B7C3]">
-              Connect
-            </button></Link>
+            <Link href="/Process">
+              <button className="w-[241px] text-sm font-bold  text-[#fff] leading-5 py-[5px] px-[12px] rounded border border-[#D1D1D1] bg-[#00B7C3]">
+                Connect
+              </button>
+            </Link>
           </div>
         </div>
-      </div>
+      </Header>
     </>
   );
 };

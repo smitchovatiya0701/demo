@@ -1,16 +1,14 @@
 import React from "react";
-import Navbar from "../Navbar/Navbar";
-import { FastForward, R, searchIcon} from "../../assets/images/index";
+import Navbar from "../../components/Navbar";
+import { FastForward, R, searchIcon } from "../../assets/images/index";
 import Image from "next/image";
 import Link from "next/link";
+import Header from "@/components/Header";
 
 const MaximizeBillable = () => {
   return (
     <>
-      <div className="max-w-[20rem] h-[636px] ml-auto rounded-xl shadow-custom">
-        <div>
-          <Navbar />
-        </div>
+      <Header isShowPin={true}>
         <div className=" flex flex-col  items-center gap-y-8 px-5  pt-10 font-custom">
           <div className="rounded-[13.833px] bg-[#00B7C3] px-[15.56px] pt-[15.56px] pb-[10.53px] border-[0.432px] border-[#D1D1D1]">
             <Image src={R} alt={""} className=" w-[38.906px] h-[44.094px]" />
@@ -33,17 +31,17 @@ const MaximizeBillable = () => {
                 </p>
               </div>
             </div>
-
+  
             <div className="flex flex-row gap-x-3 ">
               <Image src={FastForward} alt={""} className="w-6 h-6" />
-
+  
               <div className="flex flex-col gap-y-1">
                 <h3 className="text-sm font-bold ] text-nowrap">
                   Autodraft email responses
                 </h3>
                 <p className="text-[10px] font-normal leading-[14px]">
-                  RivetingAI automatically drafts responses to your emails to
-                  save you time on administrative tasks
+                  RivetingAI automatically drafts responses to your emails to save
+                  you time on administrative tasks
                 </p>
               </div>
             </div>
@@ -56,7 +54,7 @@ const MaximizeBillable = () => {
             </Link>
           </div>
         </div>
-      </div>
+      </Header>
     </>
   );
 };

@@ -1,8 +1,9 @@
 'use client'
 
 import React, { useEffect, useState } from "react";
-import Navbar from "../Navbar/Navbar";
+import Navbar from "../../components/Navbar";
 import FinalStep from "../FinalStep/page";
+import Header from "@/components/Header";
 
 const Process = () => {
   const [showProcess, setShowProcess] = useState(true);
@@ -16,12 +17,8 @@ const Process = () => {
     return () => clearTimeout(timer);
   }, []);
   return (
-    <>
+    <Header isShowPin={true}>
       {showProcess ? (
-        <div className="max-w-[20rem] h-[636px] ml-auto rounded-xl shadow-custom">
-          <div>
-            <Navbar />
-          </div>
           <div className=" flex flex-col  items-center gap-y-2 px-5  pt-10 ">
             <div className="h-[84px] block"></div>
             <div role="status">
@@ -63,11 +60,10 @@ const Process = () => {
               </p>
             </div>
           </div>
-        </div>
       ) : (
         <FinalStep />
       )}
-    </>
+    </Header>
   );
 };
 

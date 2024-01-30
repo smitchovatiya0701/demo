@@ -18,6 +18,7 @@ module.exports = {
       },
       boxShadow: {
         'custom': '0px 0px 8px 4px rgba(0, 0, 0, 0.20), 0px 14px 28px 0px rgba(0, 0, 0, 0.24)',
+        'replybox':'0px 0px 2.776px 0px rgba(0, 0, 0, 0.12), 0px 0.925px 1.85px 0px rgba(0, 0, 0, 0.14);'
       },
     },
   },
