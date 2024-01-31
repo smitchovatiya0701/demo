@@ -34,7 +34,7 @@ const Spinners = () => {
         </svg>
         <span class="sr-only">Loading...</span>
       </div>
-      <div className="flex flex-col gap-y-[60px]">
+      <div className="flex flex-col items-center gap-y-[60px]">
         <div>
           <p className="text-xl    font-bold   text-[#000000]">
             Drafting Email

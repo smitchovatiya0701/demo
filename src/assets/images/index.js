@@ -12,7 +12,13 @@ import Play from "@/assets/images/play.svg";
 import Plus from "@/assets/images/plus.svg";
 import Search from "@/assets/images/search.svg";
 import Redrafts from "@/assets/images/Redrafts.png";
+import Action from "@/assets/images/action.svg";
+import Export from "@/assets/images/export.svg";
+import DownArrow from "@/assets/images/down-arrow.svg";
 export {
+  DownArrow,
+  Export,
+  Action,
   Redrafts,
   Search,
   check,

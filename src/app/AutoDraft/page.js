@@ -1,9 +1,10 @@
 "use client";
 import React, { useState } from "react";
-import Navbar from "../../components/Navbar";
 import Header from "@/components/Header";
-import Reply from "@/components/Reply";
-import EmailForm from "@/components/EmailForm";
+import Reply from "@/components/Reply/Reply";
+import EmailForm from "@/components/DraftEmail/EmailForm";
+import TimeKeeping from "@/components/Timkeeping/TimeKeeping";
+import DraftNewEmail from "@/components/DraftEmail/DraftNewEmail";
 const AutoDraft = () => {
   const [sectionStates, setSectionStates] = useState({
     draft: true,
@@ -11,11 +12,17 @@ const AutoDraft = () => {
     timekeeping: false,
   });
   const [activeTab, setActiveTab] = useState(1);
+  const [showForm, setShowForm] = useState(true);
+  const [showEmailContent, setShowEmailContent] = useState(false);
   const sectionsData = [
     { index: 1, key: "draft", label: "Draft Email" },
     { index: 2, key: "reply", label: "Reply" },
     { index: 3, key: "timekeeping", label: "Timekeeping" },
   ];
+  const handleDraftNewEmailClick = () => {
+    // Update the state to hide the form
+    setShowForm(false);
+  };
   const handleClick = (index) => {
     setActiveTab(index);
     setSectionStates((prev) => {
@@ -25,10 +32,15 @@ const AutoDraft = () => {
       });
       return newState;
     });
+    if(index===2 || index===3){
+      setShowEmailContent(true)
+    }else{
+      setShowEmailContent(false)
+    }
   };
   return (
     <>
-      <Header>
+      <Header showButtonInNavbar={showEmailContent}>
         <div className="flex flex-col items-center px-5  font-custom gap-y-5">
           <div className="flex flex-row  gap-x-4 font-normal cursor-pointer">
             {sectionsData.map((section, idx) => (
@@ -54,11 +66,18 @@ const AutoDraft = () => {
             ))}
           </div>
           {activeTab === 1 ? (
-            <EmailForm />
+            showForm ? (
+              <EmailForm
+                onDraftNewEmailClick={handleDraftNewEmailClick}
+                setShowEmailContent={setShowEmailContent}
+              />
+            ) : (
+              <DraftNewEmail />
+            )
           ) : activeTab === 2 ? (
             <Reply />
           ) : (
-            <div>div3</div>
+            <TimeKeeping />
           )}
         </div>
       </Header>
