@@ -1,3 +1,4 @@
+"use client"
 import { Plus, Search } from "@/assets/images";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";

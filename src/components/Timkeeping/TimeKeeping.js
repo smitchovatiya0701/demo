@@ -1,3 +1,4 @@
+"use client"
 import { Action, DownArrow, Export } from "@/assets/images";
 import Image from "next/image";
 import React, { useState } from "react";

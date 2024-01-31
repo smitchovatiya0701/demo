@@ -1,3 +1,4 @@
+"use client"
 import { Catch, Play, Redrafts } from "@/assets/images";
 import Image from "next/image";
 import Link from "next/link";
