@@ -1,7 +1,7 @@
 import { Microsoftplugin, Plus, close, logo } from "../assets/images/index";
 import React from "react";
 import Image from "next/image";
-const Navbar = ({ isShowPin, showButtonInNavbar }) => {
+const Navbar = ({ isShowPin, showButtonInNavbar,handleClick }) => {
   return (
     <>
       <div className="pt-[10px] px-5 gap-x-2">
@@ -26,7 +26,7 @@ const Navbar = ({ isShowPin, showButtonInNavbar }) => {
                 New Matter
               </button>
             )}
-            <button className="">
+            <button onClick={()=>handleClick()}>
               <Image src={close} alt="" className="w-8" />
             </button>
           </div>

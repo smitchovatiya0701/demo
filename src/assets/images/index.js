@@ -15,7 +15,9 @@ import Redrafts from "@/assets/images/Redrafts.png";
 import Action from "@/assets/images/action.svg";
 import Export from "@/assets/images/export.svg";
 import DownArrow from "@/assets/images/down-arrow.svg";
+import Catch from "@/assets/images/catch.svg";
 export {
+  Catch,
   DownArrow,
   Export,
   Action,

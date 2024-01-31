@@ -5,6 +5,20 @@ import DataTable from "react-data-table-component";
 
 const TimeKeeping = () => {
   const [actionModal, setActionModal] = useState(false);
+  const toggleActionModal = () => {
+    // setActionModal((prev) => ({
+    //   ...prev,
+    //   [row.id]: !prev[row.id],
+    // }));
+    setActionModal(true);
+  };
+
+  const closeActionModal = (row) => {
+    setActionModal((prev) => ({
+      ...prev,
+      [row.id]: false,
+    }));
+  };
   const customStyles = {
     table: {
       style: {
@@ -26,59 +40,52 @@ const TimeKeeping = () => {
   };
   const tableData = [
     {
+      id: 1,
       name: "0001-James, Jones- Matter 2 ...",
       detail: "0.2 h | Draft email on motion to d...",
       time: "11:30am",
     },
     {
+      id: 2,
       name: "0001-James, Jones- Matter 2 ...",
       detail: "0.2 h | Draft email on motion to d...",
       time: "11:30am",
     },
     {
+      id: 3,
       name: "0001-James, Jones- Matter 2 ...",
       detail: "0.2 h | Draft email on motion to d...",
       time: "11:30am",
     },
     {
+      id: 3,
       name: "0001-James, Jones- Matter 2 ...",
       detail: "0.2 h | Draft email on motion to d...",
       time: "11:30am",
     },
     {
+      id: 4,
       name: "0001-James, Jones- Matter 2 ...",
       detail: "0.2 h | Draft email on motion to d...",
       time: "11:30am",
     },
     {
+      id: 5,
       name: "0001-James, Jones- Matter 2 ...",
       detail: "0.2 h | Draft email on motion to d...",
       time: "11:30am",
     },
     {
+      id: 6,
       name: "0001-James, Jones- Matter 2 ...",
       detail: "0.2 h | Draft email on motion to d...",
       time: "11:30am",
     },
     {
+      id: 7,
       name: "0001-James, Jones- Matter 2 ...",
       detail: "0.2 h | Draft email on motion to d...",
       time: "11:30am",
-    },
-    {
-      name: "0001-James, Jones- Matter 2 ...",
-      detail: "0.2 h | Draft email on motion to d...",
-      time: "11:30am",
-    },
-    {
-      name: "0001-James, Jones- Matter 2 ...",
-      detail: "0.2 h | Draft email on motion to d...",
-      time: "11:30am",
-    },
-    {
-      name: "0001-James, Jones- Matter 2 ...",
-      detail: "0.2 h | Draft email on motion to d...",
-      time: "12:30am",
     },
   ];
   const columns = [
@@ -86,7 +93,7 @@ const TimeKeeping = () => {
       selector: (row) => (
         <div className="text-white">
           <input
-            className="h-4 w-4 cursor-pointer"
+            className="h-4 w-4 accent-teal-600 text-white"
             type="checkbox"
           />
         </div>
@@ -108,30 +115,31 @@ const TimeKeeping = () => {
     {
       selector: (row) => (
         <>
-          <div className="flex flex-col justify-center items-end gap-3">
-            <div className="text-[#616161] text-[10px] leding-[16px] font-normal">
+          <div className="flex flex-col justify-center items-end gap-3 relative">
+            <div className="text-[#616161] text-[10px] leading-[16px] font-normal">
               {row.time}
             </div>
             <div
-              onClick={() => setActionModal(!actionModal)}
-              onBlur={() => setActionModal(false)}
+              onClick={() => setActionModal(true)}
+              onBlur={() => closeActionModal(row)}
+              // style={{ position: "relative" }}
             >
               <Image src={Action} width={18} height={4} alt="not found" />
             </div>
+            {actionModal && (
+              <div className="shadow-light rounded py-1 flex flex-col min-w-[121px] bg-white z-10 absolute top-5 right-0">
+                <div className="text-[#424242] text-[14px] leading-[20px] font-normal p-[6px] pr-1">
+                  Edit
+                </div>
+                <div className="text-[#424242] text-[14px] leading-[20px] font-normal p-[6px] pr-1">
+                  View Entry
+                </div>
+                <div className="text-[#424242] text-[14px] leading-[20px] font-normal p-[6px] pr-1">
+                  Delete
+                </div>
+              </div>
+            )}
           </div>
-          {/* {actionModal && (
-            <div className="shadow-light rounded py-1 flex flex-col min-w-[121px]">
-              <div className="text-[#424242] text-[14px] leading-[20px] font-normal p-[6px] pr-1">
-                Edit
-              </div>
-              <div className="text-[#424242] text-[14px] leading-[20px] font-normal p-[6px] pr-1">
-                View Entry
-              </div>
-              <div className="text-[#424242] text-[14px] leading-[20px] font-normal p-[6px] pr-1">
-                Delete
-              </div>
-            </div>
-          )} */}
         </>
       ),
       width: "70px",
@@ -179,7 +187,9 @@ const TimeKeeping = () => {
         id="table-scroll"
       />
       <div className="flex justify-end items-center w-full border-t-[1px] pt-3 mt-2">
-        <div className="text-white bg-[#00B7C3] rounded px-3 py-[5px] text-[13px] leading-[20px] font-normal">Export Today’s Timesheet</div>
+        <div className="text-white bg-[#00B7C3] rounded px-3 py-[5px] text-[13px] leading-[20px] font-normal">
+          Export Today’s Timesheet
+        </div>
       </div>
     </div>
   );

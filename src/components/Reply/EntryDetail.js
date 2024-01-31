@@ -37,7 +37,7 @@ const EntryDetail = ({ isShowEntry, setIsShowEntry }) => {
           top:0,
           left:'auto',
           bottom:'auto',
-          width:'20rem',
+          width:'25rem',
           height:'716px'
         },
         content: {
@@ -45,7 +45,7 @@ const EntryDetail = ({ isShowEntry, setIsShowEntry }) => {
           outline: "none",
           position: "absolute",
           top: "20%",
-          right: "3px",
+          right: "10%",
           padding: "25px 15px",
         },
       }}

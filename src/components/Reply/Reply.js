@@ -1,4 +1,4 @@
-import { Play, Redrafts } from "@/assets/images";
+import { Catch, Play, Redrafts } from "@/assets/images";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
@@ -25,9 +25,7 @@ const Reply = () => {
             className="flex justify-center items-center gap-1 cursor-pointer"
             onClick={() => setIsShowChangeMatter(!isShowChangeMatter)}
           >
-            {/* <Image
-    
-                    /> */}
+            <Image src={Catch} height={12} width={12} alt="not found" />
             <span className="text-[#00B7C3] text-xs font-bold leading-[18px]">
               Change Client-Matter
             </span>
@@ -153,10 +151,7 @@ const Reply = () => {
         setIsShowChangeMatter={setIsShowChangeMatter}
         setIsShowEntry={setIsShowEntry}
       />
-      <EntryDetail 
-        isShowEntry={isShowEntry} 
-        setIsShowEntry={setIsShowEntry} 
-      />
+      <EntryDetail isShowEntry={isShowEntry} setIsShowEntry={setIsShowEntry} />
     </>
   );
 };
