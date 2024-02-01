@@ -9,8 +9,8 @@ const Connect = () => {
     <>
       <Header isShowPin={true}>
         <div className="flex flex-col  items-center  px-5 pt-10 font-custom">
-          <div className="flex flex-col gap-y-8">
-            <div className="flex flex-row justify-center gap-x-2">
+          <div className="flex flex-col gap-y-9 mb-14">
+            <div className="flex flex-row justify-center gap-x-3">
               <div>
                 <Image src={Outlook} alt="" className="w-[68.48px] h-[68.48px]" />
               </div>
@@ -25,7 +25,7 @@ const Connect = () => {
                 />
               </div>
             </div>
-            <div className="flex flex-col gap-y-2 text-center">
+            <div className="flex flex-col gap-y-4 text-center">
               <h2 className=" text-base font-bold text-[#000] leading-[22px] px-10 ">
                 Connect your Outlook Inbox to RivetingAI
               </h2>
@@ -35,7 +35,7 @@ const Connect = () => {
               </p>
             </div>
           </div>
-          <div className="pt-10">
+          <div >
             <Link href="/Process">
               <button className="w-[241px] text-sm font-bold  text-[#fff] leading-5 py-[5px] px-[12px] rounded border border-[#D1D1D1] bg-[#00B7C3]">
                 Connect

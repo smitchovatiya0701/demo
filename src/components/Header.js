@@ -2,21 +2,27 @@
 import React, { useState } from "react";
 import Navbar from "./Navbar";
 
-const Header = ({ children, isShowPin, showButtonInNavbar }) => {
+const Header = ({ children, isShowPin, showButtonInNavbar,handleDraftNewEmailClick }) => {
   const [isShowModal, setIsShowModal] = useState(true);
+  
   const handleClick = () => {
-    setIsShowModal(!isShowModal);
+    setIsShowModal(false);
+    console.log(isShowModal)
   };
+ 
+
+
   return (
     <div
-      className={`max-w-[25rem] h-[716px] ml-auto shadow-custom ${
-        isShowModal ? "block" : "none"
+      className={`max-w-[25rem] h-screen ml-auto shadow-custom ${
+        isShowModal ? "block" : "hidden"
       }`}
     >
       <Navbar
         isShowPin={isShowPin}
         showButtonInNavbar={showButtonInNavbar}
         handleClick={handleClick}
+        handleDraftNewEmailClick={handleDraftNewEmailClick}
       />
       {children}
     </div>

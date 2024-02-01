@@ -1,25 +1,58 @@
-"use client"
+"use client";
 import { Action, DownArrow, Export } from "@/assets/images";
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import DataTable from "react-data-table-component";
 
 const TimeKeeping = () => {
-  const [actionModal, setActionModal] = useState(false);
-  const toggleActionModal = () => {
-    // setActionModal((prev) => ({
-    //   ...prev,
-    //   [row.id]: !prev[row.id],
-    // }));
-    setActionModal(true);
+  // const [actionModal, setActionModal] = useState(false);
+  // const toggleActionModal = () => {
+  //   // setActionModal((prev) => ({
+  //   //   ...prev,
+  //   //   [row.id]: !prev[row.id],
+  //   // }));
+  //   setActionModal(true);
+  // };
+
+  // const closeActionModal = (row) => {
+  //   setActionModal((prev) => ({
+  //     ...prev,
+  //     [row.id]: false,
+  //   }));
+  // };
+  const [selectedRowId, setSelectedRowId] = useState(null);
+
+  // const toggleActionModal = (row) => {
+  //   setSelectedRowId(selectedRowId === row.id ? null : row.id);
+  // };
+
+  // const closeActionModal = () => {
+  //   setSelectedRowId(null);
+  // };
+
+  const tableRef = useRef(null);
+
+  const toggleActionModal = (row) => {
+    setSelectedRowId(selectedRowId === row.id ? null : row.id);
   };
 
-  const closeActionModal = (row) => {
-    setActionModal((prev) => ({
-      ...prev,
-      [row.id]: false,
-    }));
+  const closeActionModal = () => {
+    setSelectedRowId(null);
   };
+
+  useEffect(() => {
+    const handleOutsideClick = (event) => {
+      if (tableRef.current && !tableRef.current.contains(event.target)) {
+        closeActionModal();
+      }
+    };
+
+    document.addEventListener("click", handleOutsideClick);
+
+    return () => {
+      document.removeEventListener("click", handleOutsideClick);
+    };
+  }, []);
   const customStyles = {
     table: {
       style: {
@@ -48,12 +81,6 @@ const TimeKeeping = () => {
     },
     {
       id: 2,
-      name: "0001-James, Jones- Matter 2 ...",
-      detail: "0.2 h | Draft email on motion to d...",
-      time: "11:30am",
-    },
-    {
-      id: 3,
       name: "0001-James, Jones- Matter 2 ...",
       detail: "0.2 h | Draft email on motion to d...",
       time: "11:30am",
@@ -116,19 +143,33 @@ const TimeKeeping = () => {
     {
       selector: (row) => (
         <>
-          <div className="flex flex-col justify-center items-end gap-3 relative">
+          <div className="flex flex-col justify-center items-end gap-3 ">
             <div className="text-[#616161] text-[10px] leading-[16px] font-normal">
               {row.time}
             </div>
             <div
-              onClick={() => setActionModal(true)}
+              // onClick={() => toggleActionModal(true)}
+              onClick={() => toggleActionModal(row)}
               onBlur={() => closeActionModal(row)}
               // style={{ position: "relative" }}
             >
               <Image src={Action} width={18} height={4} alt="not found" />
             </div>
-            {actionModal && (
-              <div className="shadow-light rounded py-1 flex flex-col min-w-[121px] bg-white z-10 absolute top-5 right-0">
+            {/* {actionModal && (
+              <div className="shadow-light w-[200px] rounded py-1 flex flex-col min-w-[121px] bg-white z-10 absolute top-5 right-0">
+                <div className="text-[#424242] text-[14px] leading-[20px] font-normal p-[6px] pr-1">
+                  Edit
+                </div>
+                <div className="text-[#424242] text-[14px] leading-[20px] font-normal p-[6px] pr-1">
+                  View Entry
+                </div>
+                <div className="text-[#424242] text-[14px] leading-[20px] font-normal p-[6px] pr-1">
+                  Delete
+                </div>
+              </div>
+            )} */}
+            {selectedRowId === row.id && (
+              <div className="shadow-light w-[200px] rounded-2 py-1 flex flex-col max-w-[121px] bg-white z-10 absolute top-5 right-0">
                 <div className="text-[#424242] text-[14px] leading-[20px] font-normal p-[6px] pr-1">
                   Edit
                 </div>
@@ -186,6 +227,7 @@ const TimeKeeping = () => {
         columns={columns}
         customStyles={customStyles}
         id="table-scroll"
+        className="relative"
       />
       <div className="flex justify-end items-center w-full border-t-[1px] pt-3 mt-2">
         <div className="text-white bg-[#00B7C3] rounded px-3 py-[5px] text-[13px] leading-[20px] font-normal">

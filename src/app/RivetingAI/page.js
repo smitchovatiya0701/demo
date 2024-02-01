@@ -10,7 +10,7 @@ import Header from "@/components/Header";
 const RivetingAI = () => {
   return (
     <Header isShowPin={true}>
-      <div className=" flex flex-col  items-center gap-y-5 px-5  ">
+      <div className=" flex flex-col  items-center gap-y-5 px-5 pt-16 ">
         <div>
           <Image src={check} alt="" className="max-w-[10rem]" />
         </div>
@@ -23,7 +23,7 @@ const RivetingAI = () => {
               Maximize billable hours, cut down on admin work.
             </p>
           </div>
-          <ul className="font-custom text-sm font-normal leading-5 text-[#242424] list-disc px-5 pt-5 ">
+          <ul className=" max-w-[300px] mx-auto font-custom text-sm font-normal leading-5 text-[#242424] list-disc px-5 pt-5 ">
             <li>Automatically bill and log your time</li>
             <li>Automatically draft and respond to emails</li>
           </ul>

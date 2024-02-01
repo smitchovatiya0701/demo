@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Redrafts } from "@/assets/images/index";
 import Image from "next/image";
-const Emailcontent = ({ onDraftNewEmailClick }) => {
+const Emailcontent = ({  }) => {
   return (
     <div className="font-custom flex flex-col ">
       <div className="flex justify-between items-center mb-2">
@@ -32,7 +32,7 @@ const Emailcontent = ({ onDraftNewEmailClick }) => {
           <div className=" ">
             <Link href="">
               <button
-                onClick={onDraftNewEmailClick}
+                // onClick={onDraftNewEmailClick}
                 className="w-[118px]  text-[#242424]  py-[5px] px-[12px] rounded border border-[#D1D1D1] text-nowrap "
               >
                 Draft New Email

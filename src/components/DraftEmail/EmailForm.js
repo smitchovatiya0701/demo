@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { Formik, Form, Field } from "formik";
 import Spinners from "./Spinners";
 import Emailcontent from "./EmailContent";
-const EmailForm = ({ onDraftNewEmailClick, setShowEmailContent }) => {
+const EmailForm = ({  setShowEmailContent }) => {
   const initialValues = {
     recipientName: "",
     recipientRole: "",
@@ -31,7 +31,7 @@ const EmailForm = ({ onDraftNewEmailClick, setShowEmailContent }) => {
             AUTO-DRAFT YOUR EMAIL
           </h2>
           <div className="flex flex-row gap-x-3">
-            <div className="flex flex-col max-w-[50%]">
+            <div className="flex flex-col max-w-[48%]">
               <label
                 htmlFor="recipientName"
                 className="text-xs font-normal text-[#616161] mb-2"
@@ -45,7 +45,7 @@ const EmailForm = ({ onDraftNewEmailClick, setShowEmailContent }) => {
                 className="px-[10px] py-[4px] rounded bg-[#F5F5F5] outline-none "
               />
             </div>
-            <div className="flex flex-col max-w-[50%]">
+            <div className="flex flex-col max-w-[48%]">
               <label
                 htmlFor="recipientRole"
                 className="text-xs font-normal text-[#616161] mb-2"
@@ -84,7 +84,7 @@ const EmailForm = ({ onDraftNewEmailClick, setShowEmailContent }) => {
               ))}
             </Field>
           </div>
-          <div>
+          <div className="mb-5">
             <label
               htmlFor="summarizeEmail"
               className="text-xs font-normal text-[#616161] block mb-2"
@@ -100,13 +100,13 @@ const EmailForm = ({ onDraftNewEmailClick, setShowEmailContent }) => {
               } text-[10px] px-[10px]  rounded bg-[#F5F5F5] outline-none  resize-none`}
             />
           </div>
-          <div className=" ">
+          <div >
             {isSubmitting ? (
               <div className="text-center">
                 <button
                   type="submit"
                   className={
-                    "w-[170px] text-sm font-bold  text-[#fff] leading-5 py-[5px] px-[12px] rounded border border-[#D1D1D1] bg-[#00B7C3] "
+                    "min-w-[170px] text-sm font-bold  text-[#fff] leading-5 py-[5px] px-[12px] rounded border border-[#D1D1D1] bg-[#00B7C3] "
                   }
                 >
                   Draft Email
@@ -115,7 +115,9 @@ const EmailForm = ({ onDraftNewEmailClick, setShowEmailContent }) => {
             ) : showSpinner ? (
               <Spinners />
             ) : setShowEmailContent ? (
-              <Emailcontent onDraftNewEmailClick={onDraftNewEmailClick} />
+              <Emailcontent 
+            
+              />
             ) : null}
           </div>
         </Form>

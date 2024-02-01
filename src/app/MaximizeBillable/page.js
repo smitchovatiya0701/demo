@@ -18,7 +18,7 @@ const MaximizeBillable = () => {
               Maximize Billable Hours with RivetingAI
             </h2>
           </div>
-          <div className=" flex flex-col gap-y-3 p-5 text-[#707070] rounded-xl border border-[#707070]">
+          <div className=" flex flex-col gap-y-6 p-5 text-[#707070] rounded-xl border border-[#707070] mb-10">
             <div className="flex flex-row gap-x-3 ">
               <Image src={searchIcon} alt={""} className="w-6 h-6" />
               <div className="flex flex-col gap-y-1">
@@ -46,9 +46,9 @@ const MaximizeBillable = () => {
               </div>
             </div>
           </div>
-          <div className="pt-5">
+          <div >
             <Link href="/Connect">
-              <button className="w-[241px] text-sm font-bold  text-[#fff] leading-5 py-[5px] px-[12px] rounded border border-[#D1D1D1] bg-[#00B7C3]">
+              <button className="min-w-[241px] text-sm font-bold  text-[#fff] leading-5 py-[5px] px-[12px] rounded border border-[#D1D1D1] bg-[#00B7C3]">
                 Get Started
               </button>
             </Link>

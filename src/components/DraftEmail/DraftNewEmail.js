@@ -2,6 +2,7 @@
 import React from "react";
 import { Formik, Form, Field } from "formik";
 import { toast, ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 const DraftNewEmail = () => {
   const initialValues = {
     matterName: "",
